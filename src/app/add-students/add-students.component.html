@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="form-row">
+    <form (ngSubmit)="onSubmit()">
+    <div class="col col-md-6">
+      <label for="name" >Student Name </label>
+      <input #id type="text"  id="name" [(ngModel)]="name"  class="form-control" name="name" >
+    </div>
+    <div class="col col-md-6">
+      <label for="name" >Roll No. </label>
+      <input #roll type="text"  id="rollno" [(ngModel)]="rollno" class="form-control" name="rollno" >
+    </div>
+      <button type="submit" (click)="id.value=''; roll.value='' "  class="btn btn-primary" >Submit</button>
+    </form>
+  </div>
+</div>
