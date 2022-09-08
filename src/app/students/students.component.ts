@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {StudentModel} from "../StudentModel";
+import {StudentServiceService} from "../student-service.service";
 
 @Component({
   selector: 'app-students',
@@ -7,20 +8,22 @@ import {StudentModel} from "../StudentModel";
   styleUrls: ['./students.component.css']
 })
 export class StudentsComponent implements OnInit {
-  @Output() EditStudent:EventEmitter<StudentModel> = new EventEmitter();
-
+  // @Output() EditStudent:EventEmitter<StudentModel> = new EventEmitter();
+  // @Output() selected : EventEmitter<StudentModel> = new EventEmitter();
+  selected : StudentModel = new StudentModel();
   students:StudentModel [] =[];
-  constructor() {
-    this.students = [
-      ];
+  constructor(private  studentService: StudentServiceService) {
+    this.students = [];
   }
   ngOnInit(): void {
   }
 
   selectStudent($event: StudentModel) {
-    // this.students.push($event);
+    this.studentService.setStudents($event);
     console.log($event.rollno,"Select Student has been triggered")
-    this.EditStudent.emit($event);
+    // this.EditStudent.emit($event);
+    // this.selected.emit($event);
+    this.selected = $event;
   }
   formStudentadd(student:StudentModel){
 

@@ -17,7 +17,7 @@ export class StudentItemComponent implements OnInit {
 
   onClick(student: StudentModel) {
     this.addStudents.emit(student);
-    console.log(student.rollno,"onClick has been triggered")
+    // console.log(student.rollno,"onClick has been triggered")
   }
 
 

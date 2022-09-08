@@ -1,9 +1,8 @@
 <div class="container">
   <h1 class="text-center mb-3">Students </h1>
-  <app-add-students (addStudent)="formStudentadd($event)"  ></app-add-students>
-
+    <app-add-students [selectedStudents]="selected" (addStudent)="formStudentadd($event)"  ></app-add-students>
      <div *ngFor="let student of students">
        <app-student-item [student]="student" (addStudents)="selectStudent($event)" ></app-student-item>
-  </div>
 
+  </div>
 </div>

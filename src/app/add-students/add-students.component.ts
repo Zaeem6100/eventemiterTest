@@ -1,5 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {StudentModel} from "../StudentModel";
+import {StudentServiceService} from "../student-service.service";
+
+
 
 @Component({
   selector: 'app-add-students',
@@ -9,12 +12,15 @@ import {StudentModel} from "../StudentModel";
 export class AddStudentsComponent implements OnInit {
   name!: string;
   rollno!: string;
+  @Input() selectedStudents!: StudentModel
   @Output() addStudent :EventEmitter<StudentModel> = new EventEmitter();
-  @Input() addStudents!: StudentModel;
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(this.addStudents,"ngOnInit has been triggered in Add Student")
+  ngOnInit(): void {}
+  ngOnChanges() {
+      console.log(this.selectedStudents.rollno,"Selected : ngOnChanges has been triggered in Add Student")
+      this.name = this.selectedStudents.name;
+      this.rollno = this.selectedStudents.rollno;
   }
 
   onSubmit() {
