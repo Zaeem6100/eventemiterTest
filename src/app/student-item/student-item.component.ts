@@ -8,8 +8,9 @@ import {StudentModel} from "../StudentModel";
 })
 export class StudentItemComponent implements OnInit {
 
-  @Input() student!: StudentModel;
+  @Input() students!: StudentModel[];
   @Output() addStudents :EventEmitter<StudentModel> = new EventEmitter();
+  @Output() deleteStudents :EventEmitter<StudentModel> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
@@ -20,5 +21,7 @@ export class StudentItemComponent implements OnInit {
     // console.log(student.rollno,"onClick has been triggered")
   }
 
-
+  onRemove(student: StudentModel) {
+    this.deleteStudents.emit(student);
+  }
 }

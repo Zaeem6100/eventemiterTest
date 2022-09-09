@@ -21,6 +21,7 @@ export class AddStudentsComponent implements OnInit {
       console.log(this.selectedStudents.rollno,"Selected : ngOnChanges has been triggered in Add Student")
       this.name = this.selectedStudents.name;
       this.rollno = this.selectedStudents.rollno;
+
   }
 
   onSubmit() {
@@ -33,4 +34,5 @@ export class AddStudentsComponent implements OnInit {
     this.addStudent.emit(Student);
     console.log(Student.rollno,"onSubmit has been triggered in Add Student")
   }
+
 }

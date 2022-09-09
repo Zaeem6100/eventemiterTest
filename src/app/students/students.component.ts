@@ -13,7 +13,11 @@ export class StudentsComponent implements OnInit {
   selected : StudentModel = new StudentModel();
   students:StudentModel [] =[];
   constructor(private  studentService: StudentServiceService) {
-    this.students = [];
+    this.students = [
+      { name: 'Rahul', rollno: '1' },
+      { name: 'Rohit', rollno: '2' },
+      { name: 'Raj', rollno: '3' },
+    ];
   }
   ngOnInit(): void {
   }
@@ -38,5 +42,11 @@ export class StudentsComponent implements OnInit {
       this.students[index] = student;
       console.log(student.rollno,"formStudentadd has been triggered Student Exists")
     }
+  }
+
+  deleteStudent($event: StudentModel) {
+    console.log($event.rollno,"Delete Student has been triggered")
+    this.students = this.students.filter((s) => s.rollno !== $event.rollno);
+
   }
 }

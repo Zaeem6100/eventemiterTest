@@ -1,8 +1,42 @@
-<div>
-  <div>
-    <h3>{{student.name}}</h3>
-    <p>{{student.rollno}}</p>
-  </div>
-  <button type="submit" (click)="onClick(student)"  >Select  Student </button>
-</div>
+<!--<div>-->
+<!--  <div>-->
+<!--    <h3>{{student.name}}</h3>-->
+<!--    <p>{{student.rollno}}</p>-->
+<!--  </div>-->
+<!--  <button class="btn btn-primary " type="submit"  (click)="onClick(student)"  >Select  Student </button>-->
+<!--  <button class="btn btn-primary " type="submit" (click)="onRemove(student)"  >Remove  Student </button>-->
+<!--</div>-->
+
+
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col"> Student Name </th>
+    <th scope="col"> Student Roll No </th>
+    <th scope="col"> Actions </th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let student of students; let i=index">
+  <tr>
+    <th scope="row">{{i+1}}</th>
+    <td>{{student.name}}</td>
+    <td>{{student.rollno}}</td>
+    <td>
+      <div class="d-flex flex-row mb-3">
+        <div>
+          <button class="btn" type="button" (click)="onClick(student)">
+            <i class="text-warning">Edit</i>
+          </button></div>
+        <div>
+          <button class="btn" type="button" (click)="onRemove(student)">
+          <i class="text-danger">Delete</i>
+          </button></div>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
 
